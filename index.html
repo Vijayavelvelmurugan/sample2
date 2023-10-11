@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>E-commerce Dashboard</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="#mobile-category">Mobile</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="sidebar">
+            <h2>Price Filter</h2>
+            <input type="number" id="min-price" placeholder="Min Price">
+            <input type="number" id="max-price" placeholder="Max Price">
+            <button id="filter-btn">Filter</button>
+        </div>
+
+        <div class="products">
+            <h2>Mobile Phones</h2>
+            <div class="search">
+                <input type="text" id="product-search" placeholder="Search Product">
+                <button id="search-btn">Search</button>
+            </div>
+            <div class="mobile-category" id="mobile-category">
+                <div class="mobile-card">
+                    <h3>Apple 13</h3>
+                    <p>Price: $900</p>
+                    <img src="./img/iphone13.jpg" alt="Apple 13">
+                </div>
+                <div class="mobile-card">
+                    <h3>Samsung C9 Pro</h3>
+                    <p>Price: $650</p>
+                    <img src="./img/samsungc9pro.webp" alt="Samsung C9 Pro">
+                </div>
+                <div class="mobile-card">
+                    <h3>Google Pixel 5</h3>
+                    <p>Price: $800</p>
+                    <img src="./img/GooglePixel5.jpg" alt="Google Pixel 5">
+                </div>
+                <div class="mobile-card">
+                    <h3>OnePlus 9</h3>
+                    <p>Price: $750</p>
+                    <img src="./img/OnePlus9.jpg" alt="OnePlus 9">
+                </div>
+                <div class="mobile-card">
+                    <h3>Xiaomi Mi 11</h3>
+                    <p>Price: $600</p>
+                    <img src="./img/XiaomiMi11.png" alt="Xiaomi Mi 11">
+                </div>
+                <div class="mobile-card">
+                    <h3>LG Velvet</h3>
+                    <p>Price: $550</p>
+                    <img src="./img/LGVelvet.jpg" alt="LG Velvet">
+                </div>
+                <div class="mobile-card">
+                    <h3>Sony Xperia 1 III</h3>
+                    <p>Price: $900</p>
+                    <img src="./img/SonyXperia1III.avif" alt="Sony Xperia 1 III">
+                </div>
+                <div class="mobile-card">
+                    <h3>Motorola Edge Plus</h3>
+                    <p>Price: $750</p>
+                    <img src="./img/MotorolaEdgePlus.webp" alt="Motorola Edge Plus">
+                </div>
+                <div class="mobile-card">
+                    <h3>Nokia 9 PureView</h3>
+                    <p>Price: $500</p>
+                    <img src="./img/Nokia9PureView.webp" alt="Nokia 9 PureView">
+                </div>
+                <div class="mobile-card">
+                    <h3>Huawei P30 Pro</h3>
+                    <p>Price: $700</p>
+                    <img src="./img/HuaweiP30Pro.jpg" alt="Huawei P30 Pro">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterButton = document.getElementById("filter-btn");
+            const searchButton = document.getElementById("search-btn");
+            const mobileCards = document.querySelectorAll(".mobile-card");
+
+            filterButton.addEventListener("click", function() {
+                const minPrice = parseFloat(document.getElementById("min-price").value);
+                const maxPrice = parseFloat(document.getElementById("max-price").value);
+
+                mobileCards.forEach(function(card) {
+                    const priceElement = card.querySelector("p");
+                    if (priceElement) {
+                        const priceText = priceElement.innerText;
+                        const price = parseFloat(priceText.replace(/\D/g, '')); // Extract the price from the text
+                        if (isNaN(price)) {
+                            return;
+                        }
+
+                        if (price >= minPrice && price <= maxPrice) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    }
+                });
+            });
+
+            searchButton.addEventListener("click", function() {
+                const searchText = document.getElementById("product-search").value.toLowerCase();
+
+                mobileCards.forEach(function(card) {
+                    const productName = card.querySelector("h3");
+                    if (productName) {
+                        const productNameText = productName.innerText.toLowerCase();
+                        if (productNameText.includes(searchText)) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

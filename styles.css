@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #007BFF;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar-left h1 {
+    margin: 0;
+}
+
+.navbar-right a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #0056b3;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-right a:hover {
+    background-color: #00429a;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+#min-price,
+#max-price {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#filter-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.products {
+    width: 65%;
+}
+
+h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.mobile-category {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mobile-card {
+    width: calc(33.33% - 10px);
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.mobile-card h3 {
+    margin: 0;
+}
+img{
+    height: 100px;
+    width: 85px;
+}
